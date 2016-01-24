@@ -12,6 +12,7 @@
         android:id="@+id/question_text_view" />
 
     <LinearLayout
+        android:id="@+id/true_false_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -29,6 +30,52 @@
             android:id="@+id/false_button"/>
 
     </LinearLayout>
+
+    <GridLayout
+        android:id="@+id/mc_question_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:columnCount="2"
+        android:visibility="gone">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/mc_button_one"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/mc_button_two"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/mc_button_three"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/mc_button_four"/>
+    </GridLayout>
+
+    <LinearLayout
+        android:id="@+id/fill_in_question_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+        <EditText
+            android:id="@+id/submit_text_area"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="@string/text_submission_hint"/>
+        <Button
+            android:id="@+id/submit_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/submit_button"/>
+
+    </LinearLayout>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">

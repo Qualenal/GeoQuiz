@@ -1,16 +1,28 @@
 package com.example.sam.geoquiz;
 
 /**
- * Created by skennedy on 1/18/2016.
+ * Abstract class to define a question for the quiz.
+ * @author Sam Kennedy
+ * @version 1.0
+ * @see FillInBlankQuestion
+ * @see MultipleChoiceQuestion
+ * @see TrueFalseQuestion
  */
-public class Question {
+public abstract class Question {
 
     private int mTextResId;
-    private boolean mAnswerTrue;
 
-    public Question(int textResId, boolean answerTrue){
+    public Question(){
+        mTextResId = 0;
+    }
+
+    /**
+     * Superclass constructor to set the Question text.
+     *
+     * @param textResId
+     */
+    public Question(int textResId){
         mTextResId = textResId;
-        mAnswerTrue = answerTrue;
     }
 
     public int getTextResId() {
@@ -21,11 +33,5 @@ public class Question {
         mTextResId = textResId;
     }
 
-    public boolean isAnswerTrue() {
-        return mAnswerTrue;
-    }
-
-    public void setAnswerTrue(boolean answerTrue) {
-        mAnswerTrue = answerTrue;
-    }
+    public abstract boolean isAnswerTrue();
 }
