@@ -11,24 +11,45 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * The sole activity that controls the only screen in this app.
+ *
+ * @author Sam Kennedy
+ * @version 1.0
+ */
 public class QuizActivity extends AppCompatActivity {
-
+    /**
+     * TextView object used to hold the question text.
+     */
     private TextView mQuestionTextView;
 
-
+    /**
+     * Array of Questions that the user is asked.
+     */
     private Question[] mQuestionBank = new Question[] {
             new TrueFalseQuestion(R.string.question_oceans, true),
             new MultipleChoiceQuestion(R.string.question_beer, new int[]{R.string.answer_beer_one,
                     R.string.answer_beer_two,R.string.answer_beer_three,R.string.answer_beer_four},1),
             new FillInBlankQuestion(R.string.question_capital,"Denver")
     };
+    /**
+     * A counter to keep track of the current question.
+     */
     private int mCurrentIndex = 0;
 
+    /**
+     * Method that adds the text to multiple choice buttons.
+     */
     private void setUpQuestions(){
         ((MultipleChoiceQuestion) mQuestionBank[1]).setAnswers(new int[]{R.string.answer_beer_one,
                 R.string.answer_beer_two, R.string.answer_beer_three, R.string.answer_beer_four});
     }
 
+    /**
+     * This method updates the view based on the current Question being asked.
+     *
+     * It also adds click listeners to Question-specific buttons.
+     */
     private void updateQuestion() {
         int question = mQuestionBank[mCurrentIndex].getTextResId();
         mQuestionTextView.setText(question);
@@ -107,6 +128,11 @@ public class QuizActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * This method checks to see if the user's answer was correct, and updates the view accordingly.
+     *
+     * @see Question#isAnswerTrue()
+     */
     private void checkAnswer() {
         boolean answerIsCorrect =  mQuestionBank[mCurrentIndex].isAnswerTrue();
         ProgressBar mProgressBar = (ProgressBar) findViewById(R.id.progress_bar);
@@ -122,6 +148,12 @@ public class QuizActivity extends AppCompatActivity {
         Toast.makeText(this, messageResId, Toast.LENGTH_SHORT).show();
     }
 
+    /**
+     * This onCreate method sets up the previous and next buttons with functionality.
+     *
+     * @see QuizActivity#updateQuestion()
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

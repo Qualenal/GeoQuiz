@@ -9,9 +9,14 @@ package com.example.sam.geoquiz;
  * @see TrueFalseQuestion
  */
 public abstract class Question {
-
+    /**
+     * Field to hold the question text.
+     */
     private int mTextResId;
 
+    /**
+     * Default constructor sets text id to 0.
+     */
     public Question(){
         mTextResId = 0;
     }
@@ -25,13 +30,25 @@ public abstract class Question {
         mTextResId = textResId;
     }
 
+    /**
+     * Getter for question text.
+     * @return
+     */
     public int getTextResId() {
         return mTextResId;
     }
 
+    /**
+     * Setter for question text.
+     * @param textResId
+     */
     public void setTextResId(int textResId) {
         mTextResId = textResId;
     }
 
+    /**
+     * Abstract function that requires children to be able to check the user's answer.
+     * @return
+     */
     public abstract boolean isAnswerTrue();
 }
