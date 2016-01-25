@@ -20,6 +20,8 @@
     <string name="answer_beer_two">Fort Collins, CO</string>
     <string name="answer_beer_three">Boston, MA</string>
     <string name="answer_beer_four">Los Angelas, CA</string>
+    <string name="question_capital">What is the capital of Colorado?</string>
+    <string name="answer_capital">Denver</string>
     
     <string name="action_settings">Settings</string>
 </resources>
